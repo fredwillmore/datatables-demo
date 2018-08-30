@@ -1,0 +1,23 @@
+.card {
+  .card-heading {
+    border-radius: inherit;
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    background-color: #666;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #fff;
+    a {
+     color: #fff;
+    }
+    .primary {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .octicon {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+}
+

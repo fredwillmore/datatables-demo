@@ -1,0 +1,29 @@
+.datatable {
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 10pt;
+
+  td {
+    font-family: inherit;
+    font-size: inherit;
+    border-bottom: 1px solid #ddd;
+  }  
+  
+  th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #ddd;
+  }
+}
+
+.page-link {
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 10pt;
+  padding: 0.2rem 0.35rem;
+}
+
+
+.dataTables_wrapper .dataTables_info {
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 10pt;
+  padding: 0.2rem 0.35rem;
+  font-weight: bold;
+}

@@ -1,0 +1,16 @@
+.card-heading{ class: header_class }
+  - if icon_class.present?
+    = display_icon icon_class
+  - if collapse_selector
+    %a{ href: collapse_selector, data: { toggle: :collapse } }= text
+  - else
+    = text
+  .action.control-links
+    - control_links.each_with_index do |c, index|
+      - data = (c[:data] || {}).merge(c[:modal] ? {toggle: :modal, target: "#modal-display", remote: true} : {})
+      - link_text = c[:text] || default_link_text(path_component c[:path], :action)
+      = link_separator.html_safe if index > 0
+      - if c[:button]
+        = submit_tag link_text, class: "btn btn-primary", id: c[:id], data: data, name: c[:name]
+      - else
+        = auth_link_to link_text, c[:path], { data: data, backup_text: c[:backup_text] }

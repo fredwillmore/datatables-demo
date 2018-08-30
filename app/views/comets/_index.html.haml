@@ -1,0 +1,11 @@
+.card
+  = card_header :telescope, 'Comets'
+  .card-body
+    %table.datatable#comets{ data: { page_length: 10, ajax_url: comets_path } }
+      %thead
+        %tr
+          %th{ data: { name: 'id' } } ID
+          %th{ data: { name: 'name' } } Full Name
+          %th{ data: { name: 'diameter', order: 'asc' } } Diameter (km)
+          %th{ data: { name: 'albedo' } } Albedo
+      %tbody

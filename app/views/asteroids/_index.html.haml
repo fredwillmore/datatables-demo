@@ -1,18 +1,14 @@
 .card
   = card_header :telescope, 'Asteroids'
   .card-body
-    %table.datatable#asteroids{ data: { page_length: 10, ajax_url: asteroids_path } }
-      -# %table.datatable#asteroids{ data: { page_length: 20, ajax_url: asteroids_path } }
+    %table.datatable#asteroids{
+        data: {
+          page_length: 20,
+          ajax: asteroids_path,
+          server_side: 'true'
+        }
+      }
       %thead
         %tr
-          %th{ data: { name: 'id' } } ID
-          %th{ data: { name: 'name' } } Full Name
-          -# %th{ data: { name: 'semi_major_axis' } } Semi-Major Axis AU (km)
-          -# %th{ data: { name: 'rotation_period' } } Rotation Period (hours)
-          -# %th{ data: { name: 'albedo' } } Albedo
-          %th{ data: { name: 'diameter', order: 'asc' } } Diameter (km)
-          -# %th{ data: { name: 'eccentricity' } } Orbital Eccentricity
-          -# %th{ data: { name: 'inclination' } } Orbital Inclination
-          %th{ data: { name: 'perihelion_distance' } } Perihelion Distance AU (km)
-          %th{ data: { name: 'aphelion_distance' } } Aphelion Distance AU (km)
-      %tbody
+          - Asteroid.datatable_columns.each do |column, configuration|
+            %th{ data: { name: column, m_data: column, orderable: configuration[:orderable]  } }= configuration[:header_text]

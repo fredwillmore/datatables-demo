@@ -15,7 +15,6 @@
 //= require turbolinks
 
 //= require jquery3
-//= require datatables
 
 function saveHistory() {
   if (window.history.pushState) {
@@ -24,53 +23,7 @@ function saveHistory() {
 }
 
 function buildDataTable(selector){
-  
-  columns = $(selector + ' th').map(function(k, v) { return $(v).data() })
-  order_column = columns.map( function(k, v) { if(v.order) return k;  } )[0] || 0;
-  order_direction = columns.map( function(k, v) { return v.order;  } )[0] || 'asc';
-
-  tableParams = {
-    dom: "<'row'<'col-sm-12'f><'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'p>>",
-    pageLength: $(selector).data().pageLength,
-    order: [[order_column, order_direction]],
-    columns: columns,
-    drawCallback: paginationDisplay
-  };
-  if(url = $(selector).data().ajaxUrl) {
-    $.extend(tableParams, {
-      processing: true,
-      serverSide: true,
-      sPaginationType: 'full_numbers',
-      fnInfoCallback: function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
-        return  "Showing " + (iTotal>0 ? iStart + " to " : '') + iEnd + " of " + iTotal + " entries";
-      },
-      ajax: {
-        url: url,
-        data: function (d, thing) {
-          findClosestDatatableInputs(selector).each(function (k, v) {
-            d[v.id] = inputValue(v);
-          });
-        },
-        complete: saveHistory
-      }
-    });
-  }
-
-  var t = $(selector).DataTable(tableParams);
-  findClosestDatatableInputs(selector).on( 'input change', function(e) { redrawTable(selector, e) } );
-
-  t.on( 'click', 'tr.selectable', function (e) {
-    markRowSelected('#' + $(this).attr('id'));
-    if($(e.target).is('a')){
-      window.location = $(e.target).attr('href');
-      return false;
-    } else {
-      $(this).find('a').click();
-    }
-  } );
-  selectPage(t, '.selected');
-
-  return t;
+  new DataTable(selector);
 }
 
 function findClosestDatatableInputs(selector){

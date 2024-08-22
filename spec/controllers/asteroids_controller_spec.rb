@@ -81,7 +81,7 @@ describe AsteroidsController do
 
     it 'responds with JSON' do
       expect(response).to be_successful
-      expect(response.content_type).to eq("application/json")
+      expect(response.content_type).to eq("application/json; charset=utf-8")
 
       expect(json['draw']).to eq("1")
 

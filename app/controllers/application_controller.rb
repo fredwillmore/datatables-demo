@@ -12,11 +12,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def sort_direction
-    params.dig(:order, '0', 'dir') || 'DESC'
+    params.dig(:order, '0', 'dir') || 'ASC'
   end
 
   def sort_order
-    params.dig(:columns, params.dig(:order, '0', 'column'), 'name') || 'default'
+    params.dig(:columns, params.dig(:order, '0', 'column'), 'name') || controller_name.classify.constantize.default_sort
   end
 
   # def default_search_start_date

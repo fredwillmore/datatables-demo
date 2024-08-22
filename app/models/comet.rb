@@ -37,6 +37,10 @@ class Comet < ApplicationRecord
     [ :full_name ]
   end
 
+  def self.default_sort
+    :full_name
+  end
+
   def self.sort_fields
     {
       id:        :id,

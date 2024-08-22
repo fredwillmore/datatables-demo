@@ -1,4 +1,4 @@
-json.draw 1
-json.aaData @asteroids
-json.iTotalRecords @asteroids.total_entries
-json.iTotalDisplayRecords @asteroids.length
+json.draw @draw
+json.data @asteroids
+json.recordsTotal @asteroids.total_entries
+json.recordsFiltered @asteroids.total_entries

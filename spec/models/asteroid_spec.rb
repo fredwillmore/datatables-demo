@@ -27,7 +27,7 @@ describe Asteroid do
     end
 
     describe 'sort by rotations' do
-      let(:results) { Asteroid.search('', {sort_order: 'rotation_period', sort_direction: :asc}) }
+      let(:results) { Asteroid.search('', {sort_order: 'rot_per', sort_direction: :asc}) }
 
       it 'returns asteroids ordered by rot_per' do
         expect(results.to_a).to eq [@zenith, @acme]

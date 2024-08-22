@@ -18,7 +18,7 @@ describe AsteroidsController do
           }, 
           '1' => {
             data: 1,
-            name: 'name',
+            name: 'full_name',
             searchable: true,
             orderable: true,
             search: {
@@ -83,9 +83,10 @@ describe AsteroidsController do
       expect(response).to be_successful
       expect(response.content_type).to eq("application/json")
 
-      expect(json['draw']).to eq(1)
-      expect(json['iTotalRecords']).to eq(2)
-      expect(json['iTotalDisplayRecords']).to eq(1) # page length is 1
+      expect(json['draw']).to eq("1")
+
+      expect(json['recordsTotal']).to eq(2)
+      expect(json['recordsFiltered']).to eq(2)
     end
 
     describe "results order" do
@@ -96,7 +97,7 @@ describe AsteroidsController do
           let(:order_direction) { 'asc' }
           
           it "has the lower diameter record first" do
-            expect(json['aaData'][0]['full_name']).to eq('Thing 2')
+            expect(json['data'][0]['full_name']).to eq('Thing 2')
           end
         end
         
@@ -104,7 +105,7 @@ describe AsteroidsController do
           let(:order_direction) { 'desc' }
           
           it "has the higher diameter record first" do
-            expect(json['aaData'][0]['full_name']).to eq('Thing 1')
+            expect(json['data'][0]['full_name']).to eq('Thing 1')
           end
         end
       end
@@ -116,7 +117,7 @@ describe AsteroidsController do
           let(:order_direction) { 'asc' }
           
           it "has the lower albedo record first" do
-            expect(json['aaData'][0]['full_name']).to eq('Thing 1')
+            expect(json['data'][0]['full_name']).to eq('Thing 1')
           end
         end
         
@@ -124,7 +125,7 @@ describe AsteroidsController do
           let(:order_direction) { 'desc' }
           
           it "has the higher albedo record first" do
-            expect(json['aaData'][0]['full_name']).to eq('Thing 2')
+            expect(json['data'][0]['full_name']).to eq('Thing 2')
           end
         end
       end

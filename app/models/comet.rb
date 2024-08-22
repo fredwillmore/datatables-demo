@@ -39,21 +39,5 @@ class Comet < ApplicationRecord
 
   def self.default_sort
     :full_name
-  end
-
-  def self.sort_fields
-    {
-      id:        :id,
-      name:      :full_name,
-      rotation_period: :rot_per,
-      albedo:    :albedo,
-      diameter:  :diameter,
-      perihelion_distance: :q,
-      aphelion_distance: :ad,
-      eccentricity:  :e,
-      inclination:  :i,
-      default:   :full_name
-    }
-  end
-  
+  end  
 end

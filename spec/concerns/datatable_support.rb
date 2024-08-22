@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 shared_examples_for "datatable_support" do
-  it "implements sort_fields" do
-    expect(described_class).to respond_to :sort_fields
-  end
-
   it "implements sort_by" do
     expect(described_class).to respond_to :sort_by
   end

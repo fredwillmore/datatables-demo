@@ -294,7 +294,7 @@ DEPENDENCIES
   bootsnap
   bootstrap
   byebug
-  capybara (>= 2.15, < 4.0)
+  capybara
   coffee-rails (~> 4.2)
   factory_bot_rails (~> 6.2)
   haml-rails
@@ -320,7 +320,7 @@ DEPENDENCIES
   will_paginate
 
 RUBY VERSION
-   ruby 3.1.6p260
+   ruby 3.2.5p208
 
 BUNDLED WITH
    2.3.27

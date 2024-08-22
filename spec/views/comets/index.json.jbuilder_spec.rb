@@ -6,7 +6,7 @@ describe "comets/index.json.jbuilder", type: :view do
     create(:comet, id: 202, full_name: "Somebody Else")
     # this is a de facto test of search as well
     assign(:comets, Comet.search("Freddy"))
-    render
+    render template: 'comets/index', formats: [:json]
   end
 
   it "renders a list of comets" do

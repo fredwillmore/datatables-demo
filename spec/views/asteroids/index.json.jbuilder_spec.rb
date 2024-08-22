@@ -6,7 +6,7 @@ describe "asteroids/index.json.jbuilder", type: :view do
     create(:asteroid, id: 202, full_name: "Somebody Else")
     # this is a de facto test of search as well
     assign(:asteroids, Asteroid.search("Freddy"))
-    render
+    render template: 'asteroids/index', formats: [:json]
   end
 
   it "renders a list of asteroids" do

@@ -18,13 +18,8 @@ module DatatableSupport
       throw NotImplementedError
     end
 
-    def sort_fields
-      { default: :id }
-    end
-
-    def sort_by sort_order = :default
-      sort_order ||= :default
-      sort_fields[sort_order.to_sym] || sort_fields[:default]
+    def sort_by sort_order
+      sort_order.presence || default_sort
     end
 
     def order_clause(options)

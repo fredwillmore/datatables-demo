@@ -14,6 +14,10 @@ module DatatableSupport
         )
     end
 
+    def datatable_columns
+      throw NotImplementedError
+    end
+
     def search_fields
       throw NotImplementedError
     end

@@ -33,20 +33,7 @@ class Comet < ApplicationRecord
 
   protected
   
-  def self.datatable_columns
-    {
-      id: { header_text: "ID", orderable: 'false', searchable: 'false' },
-      full_name: { header_text: "Full Name", searchable: 'true', orderable: 'true' },
-      diameter: { header_text: "Diameter (km)", searchable: 'false', orderable: 'true' },
-      albedo: { header_text: "Albedo", searchable: 'false', orderable: 'true' },
-    }
+  def self.datatable_configuration_class
+    CometDatatableConfiguration
   end
-  
-  def self.search_fields()
-    [ :full_name ]
-  end
-
-  def self.default_sort
-    :full_name
-  end  
 end

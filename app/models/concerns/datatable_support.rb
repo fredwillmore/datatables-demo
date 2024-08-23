@@ -13,15 +13,19 @@ module DatatableSupport
           per_page: options[:page_length]
         )
     end
-
+  
     def datatable_columns
-      throw NotImplementedError
+      datatable_configuration_class.columns
     end
 
     def search_fields
-      throw NotImplementedError
+      datatable_configuration_class.search_fields
     end
-
+  
+    def default_sort
+      datatable_configuration_class.default_sort
+    end
+  
     def sort_by sort_order
       sort_order.presence || default_sort
     end

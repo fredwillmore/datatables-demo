@@ -29,3 +29,4 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+db/seeds/data/asteroids.csv db/seeds/data/comets.csv

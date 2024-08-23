@@ -1,8 +1,4 @@
-# README
-
-Ruby version: 2.5.1
-
-Database is postgres - database user is datatables_demo
+Database is postgres
 Test suite is in rspec - run `rspec spec/`
 
 The down low:
